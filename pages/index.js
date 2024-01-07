@@ -99,7 +99,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow container max-w-2xl mx-auto p-5">
         <Head>
-          <title>Replicate + Next.js</title>
+          <title>Greenalytics - by Baller AI</title>
         </Head>
 
         <h1 className="py-6 text-center font-bold text-4xl md:text-5xl lg:text-6xl text-white shadow-lg">
