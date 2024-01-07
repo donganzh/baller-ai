@@ -1,6 +1,6 @@
-## Getting started with Next.js and Replicate
+## Getting started with EcoValuator Tools Developed By Baller AI
 
-This is a [Next.js](https://nextjs.org/) template project that's preconfigured to work with Replicate's API.
+This is a [Next.js](https://nextjs.org/) project that's preconfigured to work with Replicate's API.
 
 You can use this as a quick jumping-off point to build a web app using Replicate's API, or you can recreate this codebase from scratch by following the guide at [replicate.com/docs/get-started/nextjs](https://replicate.com/docs/get-started/nextjs)
 
