@@ -2,21 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply text-white;
+  background-image: url('../assets/john-o-nolan-uMWPrcRsrto-unsplash.jpeg'); /* Update with the correct path */
+  background-size: cover;
+  background-position: center;
+}
+
 input {
   @apply border;
   @apply border-solid;
   @apply border-gray-300;
-  /* @apply rounded-md; */
   @apply px-4;
   @apply py-2;
+  @apply rounded-md; /* This line will give your input boxes rounded borders */
 }
+
 
 .border-hairline {
   @apply border border-black border-opacity-10;
 }
 
 .button {
-  @apply bg-black text-white rounded-r-md inline-block px-5 py-3;
+  @apply bg-[#034638] rounded-r-md inline-block px-5 py-3;
 }
 
 .image-wrapper {

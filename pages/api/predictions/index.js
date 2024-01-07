@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   }
 
   const prediction = await replicate.predictions.create({
-    version: "35042c9a33ac8fd5e29e27fb3197f33aa483f72c2ce3b0b9d201155c7fd2a287",
+    version: "7b3212fbaf88310cfef07a061ce94224e82efc8403c26fc67e8f6c065de51f21",
 
     // This is the text prompt that will be submitted by a form on the frontend
     input: { prompt: req.body.prompt },

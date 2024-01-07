@@ -59,7 +59,7 @@ export default function Home() {
 
     const userPrompt =
       secondPrompt +
-      " Rate this solution from Innovation and Originality, Environmental Impact, Market Potential, Economic Viability, Execution Feasibility, and Thoroughness.";
+      " Rate this solution from Innovation and Originality, Environmental Impact, Market Potential, Economic Viability, Execution Feasibility, and Thoroughness. Give a final average score from all the metrics at the end.";
 
     const response = await fetch("/api/predictions", {
       method: "POST",
@@ -96,59 +96,68 @@ export default function Home() {
   };
 
   return (
-    <div className="container max-w-2xl mx-auto p-5">
-      <Head>
-        <title>Replicate + Next.js</title>
-      </Head>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow container max-w-2xl mx-auto p-5">
+        <Head>
+          <title>Replicate + Next.js</title>
+        </Head>
 
-      <h1 className="py-6 text-center font-bold text-2xl">
-        EcoValuator AI Tool
-      </h1>
+        <h1 className="py-6 text-center font-bold text-4xl md:text-5xl lg:text-6xl text-white shadow-lg">
+          Greenalytics:
+          <span className="block text-3xl md:text-4xl lg:text-5xl">Your Smart Advisor to the Circular Economy</span>
+        </h1>
 
-      {/* First Input Form */}
-      <form className="w-full flex" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className="flex-grow"
-          name="prompt"
-          placeholder="Enter the problem"
-        />
-        <button className="button" type="submit">
-          Check
-        </button>
-      </form>
 
-      {error && <div>{error}</div>}
-
-      {/* Display First Prediction */}
-      {firstPrediction && (
-        <div className="text-output mt-5">
-          <p>{firstPrediction.output}</p>
-        </div>
-      )}
-
-      {/* Second Input Form */}
-      {firstPrediction && (
-        <form className="w-full flex mt-5" onSubmit={handleSecondSubmit}>
+        {/* First Input Form */}
+        <form className="w-full flex" onSubmit={handleSubmit}>
           <input
             type="text"
-            className="flex-grow"
-            value={secondPrompt}
-            onChange={(e) => setSecondPrompt(e.target.value)}
-            placeholder="Enter the solution"
+            className="flex-grow text-black" // Add text-black to set the text color to black
+            name="prompt"
+            placeholder="Enter the problem"
           />
           <button className="button" type="submit">
-            Evaluate
+            Check
           </button>
         </form>
-      )}
 
-      {/* Display Second Prediction */}
-      {secondPrediction && (
-        <div className="text-output mt-5">
-          <p>{secondPrediction.output}</p>
-        </div>
-      )}
+        {error && <div>{error}</div>}
+
+        {/* Display First Prediction */}
+        {firstPrediction && (
+          <div className="text-output mt-5 bg-white p-4 text-black border border-gray-300 rounded-md shadow-sm">
+            <p>{firstPrediction.output}</p>
+          </div>
+        )}
+
+        {/* Second Input Form */}
+        {firstPrediction && (
+          <form className="w-full flex mt-5" onSubmit={handleSecondSubmit}>
+            <input
+              type="text"
+              className="flex-grow text-black" // Add text-black to set the text color to black
+              value={secondPrompt}
+              onChange={(e) => setSecondPrompt(e.target.value)}
+              placeholder="Enter the solution"
+            />
+            <button className="button" type="submit">
+              Evaluate
+            </button>
+          </form>
+        )}
+
+        {/* Display Second Prediction */}
+        {secondPrediction && (
+          <div className="text-output mt-5 bg-white p-4 text-black border border-gray-300 rounded-md shadow-sm">
+            <p>{secondPrediction.output}</p>
+          </div>
+        )}
+      </div>
+      <footer className="bg-green-50 w-full text-center p-4">
+        <p className="text-xs md:text-sm font-semibold text-gray-700">
+          Powered by Mixtral 8x7b, Developed by Baller AI
+        </p>
+      </footer>
     </div>
   );
 }
